@@ -1,0 +1,12 @@
+name: EpicJump
+author: PoloXpN
+description: Simple parkour plugin with checkpoints, rewards and more!
+version: '${project.version}'
+main: fr.poloxpn.epicjump.EpicJump
+load: POSTWORLD
+api-version: "1.13"
+commands:
+  epicjump:
+    usage: /epicjump <subcommand> [args]
+    description: Gérer les paramètres du jeu EpicJump
+    aliases: [ej]

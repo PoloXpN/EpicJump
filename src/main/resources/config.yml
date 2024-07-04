@@ -1,0 +1,16 @@
+language: en_US
+
+reward:
+  material: DIAMOND
+  amount: 1
+starting-lives: 3
+
+#Customize the pressure plates
+start-pressure-plate: IRON_PLATE
+end-pressure-plate: GOLD_PLATE
+checkpoint-pressure-plate: STONE_PRESSURE_PLATE
+
+#Customize parkour items
+checkpoint-item: IRON_PLATE
+reset-item: BED
+leave-item: OAK_DOOR

@@ -1,0 +1,4 @@
+courses:
+  test:
+    - give %player% diamond 1
+    - message %player% &aYou have been given a diamond!
