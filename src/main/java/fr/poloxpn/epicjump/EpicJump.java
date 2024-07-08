@@ -1,6 +1,7 @@
 package fr.poloxpn.epicjump;
 
 import com.cryptomorin.xseries.XMaterial;
+import com.google.common.xml.XmlEscapers;
 import fr.poloxpn.epicjump.commands.CommandManager;
 import fr.poloxpn.epicjump.listeners.ItemUseListener;
 import fr.poloxpn.epicjump.listeners.ParkoursListener;
@@ -24,6 +25,7 @@ public final class EpicJump extends JavaPlugin {
     private Material resetItem;
     private Material leaveItem;
 
+    private CommandManager commandManager;
     private ActionBarManager actionBarManager;
     private CourseManager courseManager;
     private ConfigManager configManager;
@@ -32,17 +34,20 @@ public final class EpicJump extends JavaPlugin {
     private HologramManager hologramManager;
     private Rewards rewards;
     private PlayerData playerData;
+    private Message message;
 
     @Override
     public void onEnable() {
         actionBarManager = new ActionBarManager();
         configManager = new ConfigManager(this);
         courseManager = new CourseManager(this);
+        commandManager = new CommandManager(this);
         rewards = new Rewards(this);
         playerSessionManager = new SessionManager(this);
         playerData = new PlayerData(this);
         leaderboardManager = new LeaderboardManager(this);
         hologramManager = new HologramManager(this);
+        message = new Message(this);
 
         reloadPlugin();
 
@@ -153,6 +158,7 @@ public final class EpicJump extends JavaPlugin {
 
     private void loadOtherComponents() {
         // Load or reload other necessary components, e.g., managers, handlers
+        message.loadMessages();
         hologramManager.despawnHolograms();
         courseManager.loadCourses();
         leaderboardManager.loadLeaderboards();

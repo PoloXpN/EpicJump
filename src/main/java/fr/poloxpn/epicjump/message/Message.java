@@ -18,14 +18,13 @@ public class Message {
 
     public Message(EpicJump plugin) {
         this.plugin = plugin;
-        loadMessages();
     }
 
     public static String getMessage(Messages msg) {
-        return ChatColor.translateAlternateColorCodes('&',messages.get(msg.name()));
+        return ChatColor.translateAlternateColorCodes('&', messages.get(msg.name()));
     }
 
-    private void loadMessages() {
+    public void loadMessages() {
         createDefaultLanguageFile();
         FileConfiguration config = plugin.getConfig();
         String lang = config.getString("language", defaultLanguage);

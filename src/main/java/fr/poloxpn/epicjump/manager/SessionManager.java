@@ -151,10 +151,9 @@ public class SessionManager {
 
         if(!playerSession.get(playerId).hasUnlimitedLives()) {
 
-            int lives = playerSession.get(playerId).getLives() - 1;
-            playerSession.get(playerId).setLives(lives);
-
             if (lastCheckpoint != playerSession.get(playerId).getSpawnLocation()) {
+                int lives = playerSession.get(playerId).getLives() - 1;
+                playerSession.get(playerId).setLives(lives);
                 if (lives < 1) {
                     player.teleport(playerSession.get(playerId).getSpawnLocation());
                     endCourse(player);
